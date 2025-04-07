@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        /* General styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+
+        /* Hero section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #f0f5ff;
+        }
+
+        .hero-content {
+            width: 50%;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #0066cc;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #0066cc;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0052a3;
+        }
+
+        /* About section */
+        .about {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #0066cc;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-img {
+            width: 40%;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            width: 55%;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        /* Skills section */
+        .skills {
+            padding: 100px 0;
+            background-color: #f0f5ff;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-box i {
+            font-size: 40px;
+            color: #0066cc;
+            margin-bottom: 20px;
+        }
+
+        .skill-box h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+
+        /* Projects section */
+        .projects {
+            padding: 100px 0;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            margin-bottom: 15px;
+        }
+
+        .project-links {
+            display: flex;
+        }
+
+        .project-links a {
+            display: inline-block;
+            padding: 8px 15px;
+            margin-right: 10px;
+            background-color: #0066cc;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .project-links a:hover {
+            background-color: #0052a3;
+        }
+
+        /* Contact section */
+        .contact {
+            padding: 100px 0;
+            background-color: #f0f5ff;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            width: 40%;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            font-size: 20px;
+            margin-right: 15px;
+            color: #0066cc;
+        }
+
+        .contact-form {
+            width: 55%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #fff;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #0066cc;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content, .about-img, .about-text, .contact-info, .contact-form {
+                width: 100%;
+            }
+
+            .about-content, .contact-container {
+                flex-direction: column;
+            }
+
+            .about-img {
+                margin-bottom: 30px;
+            }
+
+            .contact-info {
+                margin-bottom: 50px;
+            }
+
+            .projects-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        /* Certificate Section Styling */
+.certificates {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title-small {
+  color: #0077B6;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #0077B6;
+}
+
+/* Certificate Slider */
+.certificates-slider {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.certificates-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* For Firefox */
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.certificates-track::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+/* Certificate Items */
+.certificate-item {
+  flex: 0 0 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.certificate-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.certificate-link {
+  display: block;
+  text-decoration: none;
+}
+
+.certificate-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+/* Certificate Overlay for Hover Effect */
+.certificate-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.certificate-item:hover .certificate-overlay {
+  opacity: 1;
+}
+
+.view-certificate-btn {
+  background-color: #0077B6;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.certificate-item:hover .view-certificate-btn {
+  transform: translateY(0);
+}
+
+.view-certificate-btn:hover {
+  background-color: #005b8c;
+}
+
+/* View All Certificates Button */
+.certificate-button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.certificate-button {
+  display: inline-block;
+  background-color: #0077B6;
+  color: white;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.certificate-button:hover {
+  background-color: #005b8c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.certificate-button i {
+  margin-right: 8px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .certificate-item {
+    flex: 0 0 260px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificate-item {
+    flex: 0 0 220px;
+  }
+
+  .view-certificate-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .certificate-button {
+    padding: 12px 24px;
+  }
+}
+        /* Development Tools Section */
+#tools {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.tools-title {
+  text-align: center;
+  font-size: 32px;
+  color: #212529;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.tools-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #0077B6;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #6c757d;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.tool-card,
+.skill-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tool-card:hover,
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.tool-card img,
+.skill-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.tool-card p,
+.skill-card p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #495057;
+  margin: 0;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 20px;
+  }
+
+  .tools-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tools-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 15px;
+  }
+
+  .tool-card,
+  .skill-card {
+    padding: 15px 10px;
+  }
+
+  .tool-card img,
+  .skill-card img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+
+  .tool-card p,
+  .skill-card p {
+    font-size: 14px;
+  }
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#certificates">certificates</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- H0me Section -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Hello, I'm <span class="highlight">Kalpana</span></h1>
+            <p>I'm a passionate web developer creating beautiful and functional websites. I specialize in front-end as well as in back-end.</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="portfolio_girl.png" alt="Your Name" width="400px" height="400px">
+            </div>
+            <div class="about-text">
+                <h3>Web Developer & Designer</h3>
+                <p>I am a skilled web developer with expertise in creating responsive and user-friendly websites. With a strong background in both front-end and back-end development, I deliver high-quality solutions tailored to meet client needs.</p>
+                <p> My goal is to create elegant, efficient, and effective web applications that provide excellent user experiences.</p>
+                <a href="#contact" class="btn">Contact Me</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="skills" id="skills">
+    <div class="container">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-container">
+            <div class="skill-box">
+                <i class="fas fa-code"></i>
+                <h4>HTML/CSS</h4>
+                <p>Creating responsive and accessible websites</p>
+            </div>
+            <div class="skill-box">
+                <i class="fab fa-js"></i>
+                <h4>JavaScript</h4>
+                <p>Building interactive web applications</p>
+            </div>
+            <div class="skill-box">
+                <i class="fab fa-react"></i>
+                <h4>React</h4>
+                <p>Developing modern single-page applications</p>
+            </div>
+            <div class="skill-box">
+                <i class="fab fa-bootstrap"></i>
+                <h4>Bootstrap</h4>
+                <p>Creating server-side applications</p>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-database"></i>
+                <h4>MySQL</h4>
+                <p>Managing and organizing data effectively</p>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-leaf"></i> <!-- Using a Spring-like icon -->
+                <h4>Spring Boot</h4>
+                <p>Building robust and scalable Java applications</p>
+            </div>
+            <div class="skill-box">
+                <i class="fas fa-database"></i> <!-- Database icon -->
+                <h4>PostgreSQL</h4>
+                <p>Efficient and reliable relational database management</p>
+            </div>
+            <div class="skill-box">
+                <i class="fab fa-git-alt"></i> <!-- Git icon -->
+                <h4>Git & GitHub</h4>
+                <p>Version control and collaborative development</p>
+            </div>
+            <div class="skill-box">
+                <i class="fab fa-java"></i> <!-- Java icon -->
+                <h4>Java</h4>
+                <p>Object-oriented programming for scalable applications</p>
+            </div>
+
+            <div class="skill-box">
+                <!--<i class="fas fa-paper-plane"></i>  -->
+                <img src="https://www.svgrepo.com/show/354202/postman-icon.svg" alt="Postman Logo" width="40" height="40">
+                <h4>Postman</h4>
+                <p>API development and testing made easy</p>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<section id="tools" class="container">
+    <h2 class="tools-title">Development Tools</h2>
+    <p class="section-subtitle"></p>
+    <div class="tools-grid">
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo" width="40" height="40">
+            <p>GitHub</p>
+        </div>
+
+        <div class="tool-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma Logo" width="40" height="40">
+            <p>Figma</p>
+        </div>
+
+        <div class="tool-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code Logo" width="40" height="40">
+            <p>VS Code</p>
+        </div>
+
+        <div class="tool-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" alt="IntelliJ IDEA Logo">
+            <p>IntelliJ IDEA</p>
+        </div>
+
+        <div class="tool-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" width="40" height="40">
+            <p>SQL Workbench</p>
+        </div>
+
+        <div class="tool-card">
+            <img src="https://www.svgrepo.com/show/354202/postman-icon.svg" alt="Postman Logo" width="40" height="40">
+            <p>Postman</p>
+        </div>
+
+
+    </div>
+</section>
+<section id="certificates" class="certificates">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-title-small"></span>
+            <h2 class="section-title">My Certificates</h2>
+        </div>
+        <div class="certificates-slider">
+            <div class="certificates-track">
+                <div class="certificate-item">
+                    <a href="https://drive.google.com/file/d/1H331Da2Q6lERvSHnoF484CUNYsNF1bZ4/view?usp=drive_link" target="_blank" class="certificate-link">
+                        <img src="Java.png" height="567" width="745">
+                        <div class="certificate-overlay">
+                            <button class="view-certificate-btn">View Certificate</button>
+                        </div>
+                    </a>
+                </div>
+                <div class="certificate-item">
+                    <a href="https://drive.google.com/file/d/1mMCymXeWX0h1-iIN1uokdCLVTkDYKbwf/view?usp=drive_link" target="_blank" class="certificate-link">
+                        <img src="HTML.png" height="567" width="745">
+                        <div class="certificate-overlay">
+                            <button class="view-certificate-btn">View Certificate</button>
+                        </div>
+                    </a>
+                </div>
+                <div class="certificate-item">
+                    <a href="https://drive.google.com/file/d/1_pEicXPP5nMr6MZgKjZNUDEXU15F9adV/view?usp=drive_link" target="_blank" class="certificate-link">
+                        <img src="CSS.png" height="567" width="745">
+                        <div class="certificate-overlay">
+                            <button class="view-certificate-btn">View Certificate</button>
+                        </div>
+                    </a>
+                </div>
+                <div class="certificate-item">
+                    <a href="https://drive.google.com/file/d/1aSCt9DhhlOglVBkkjsgeP1W9AMR1C8tL/view?usp=drive_link" target="_blank" class="certificate-link">
+                        <img src="API%20SPRING.png" height="567" width="745">
+                        <div class="certificate-overlay">
+                            <button class="view-certificate-btn">View Certificate</button>
+                        </div>
+                    </a>
+                </div>
+                <div class="certificate-item">
+                    <a href="https://drive.google.com/file/d/1bbZR5C4IwLmtGgI1y09G3oS9jNvPftTa/view?usp=drive_link" target="_blank" class="certificate-link">
+                        <img src="React.png" height="567" width="745">
+                        <div class="certificate-overlay">
+                            <button class="view-certificate-btn">View Certificate</button>
+                        </div>
+                    </a>
+                </div>
+                <div class="certificate-item">
+                    <a href="https://drive.google.com/file/d/1uyAYgbLcwCgatOtpUXowW974qEWS2-Re/view?usp=drive_link" target="_blank" class="certificate-link">
+                        <img src="JS.png" height="567" width="745">
+                        <div class="certificate-overlay">
+                            <button class="view-certificate-btn">View Certificate</button>
+                        </div>
+                    </a>
+                </div>
+                <div class="certificate-item">
+                    <a href="https://drive.google.com/file/d/1FbXen_B5T30IQec4AUVgYWZFD7QrBwEv/view?usp=drive_link" target="_blank" class="certificate-link">
+                        <img src="SQL.png" height="567" width="745">
+                        <div class="certificate-overlay">
+                            <button class="view-certificate-btn">View Certificate</button>
+                        </div>
+                    </a>
+                </div>
+                <div class="certificate-item">
+                    <a href="https://drive.google.com/file/d/185yP2arVh1KrLJoVAvGGxiywsTRTXTBA/view?usp=drive_link" target="_blank" class="certificate-link">
+                        <img src="Git.png" height="567" width="745">
+                        <div class="certificate-overlay">
+                            <button class="view-certificate-btn">View Certificate</button>
+                        </div>
+                    </a>
+                </div>
+                <div class="certificate-item">
+                    <a href="https://drive.google.com/file/d/1zDHBFrFchEZL2swwLwTqq2LGr91oFOmU/view?usp=drive_link" target="_blank" class="certificate-link">
+                        <img src="Spring.png" height="567" width="745">
+                        <div class="certificate-overlay">
+                            <button class="view-certificate-btn">View Certificate</button>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="certificate-button-container">
+            <a href="https://drive.google.com/drive/folders/14DKAMU5Pn2RhRBJIShLOCSZJ-SGTRyU8?usp=drive_link" target="_blank" class="certificate-button">
+                <i class="fas fa-external-link-alt"></i>
+                View All Certificates
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Projects Section -->
+<section class="projects" id="projects">
+    <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="VS.png" alt="Project 1">
+                </div>
+                <div class="project-info">
+                    <h4>Vehicle Service Management</h4>
+                    <p>A fully responsive vehicle service management platform with appointment scheduling, service tracking, and secure payment processing.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">HTML/CSS/JS</a>
+                        <a href="#" target="_blank">Python</a>
+                        <a href="#" target="_blank">SQL</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="Screenshot%202024-07-17%20161226.png" alt="Project 2">
+                </div>
+                <div class="project-info">
+                    <h4>Prediction of Autism Spectrum Disorder</h4>
+                    <p>To develop a reliable and accurate machine learning model that can predict the likelihood of Autism Spectrum Disorder in individuals</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Python</a>
+                        <a href="#" target="_blank">Flask</a>
+                        <a href="#" target="_blank">Machine Learning</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="Screenshot%202025-04-02%20152430.png" alt="Project 3">
+                </div>
+                <div class="project-info">
+                    <h4>Laundry Service Management</h4>
+                    <p>A comprehensive laundry service platform with order tracking, scheduling, and secure payment processing.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">React</a>
+                        <a href="#" target="_blank">Springboot</a>
+                        <a href="#" target="_blank">MySQL</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <p>Feel free to reach out if you're looking for a developer, have a question, or just want to connect.</p>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>kalpareddy505@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>9731384568</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Nagavara, Bengaluru</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="social-links">
+            <a href="https://github.com/kalpareddy" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="linkedin.com/in/kalpanareddy2001" target="_blank"><i class="fab fa-linkedin"></i></a>
+
+        </div>
+        <p class="footer-text"> Kalpana.</p>
+    </div>
+</footer>
+
+<script>
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // You would typically send the form data to a backend server here
+        alert('Message sent successfully!');
+        this.reset();
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Reveal animations when scrolling
+    function reveal() {
+        const reveals = document.querySelectorAll('.skill-box, .project-card');
+
+        for (let i = 0; i < reveals.length; i++) {
+            const windowHeight = window.innerHeight;
+            const elementTop = reveals[i].getBoundingClientRect().top;
+            const elementVisible = 150;
+
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+
+    window.addEventListener('scroll', reveal);
+</script>
+</body>
+</html>
